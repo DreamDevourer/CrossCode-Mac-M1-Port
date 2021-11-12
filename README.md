@@ -24,12 +24,14 @@ git clone https://github.com/DreamDevourer/CrossCode-Mac-M1-Port.git
 
 2 - Extract the files inside the aarch64/NWJS.xz, the folder structure needs to look like this after the extraction:
 
+```bash
 aarch64
 ├── MacOS
 ├── Frameworks
 ├── Resources
 ├── PkgInfo
 └── info.plist
+```
 
 3 - move the installer.py with the aarch64 folder to where the CrossCode.app is located (Your steam default installation folder probably).
 
