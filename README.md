@@ -203,7 +203,7 @@ To change the build configuration for Node, you need to setup the GYP_DEFINES en
 >export GYP_DEFINES="target_arch=x64 building_nw=1 nwjs_sdk=1 disable_nacl=0 mac_breakpad=1 buildtype=Official"
 >```
 
-## Build nwjs
+### Build nwjs
 
 ninja build files are generated in `out/nw` folder after you run GN. Run following command in your terminal will generate the Debug build of standard NW.js binaries in `out/nw` folder:
 
