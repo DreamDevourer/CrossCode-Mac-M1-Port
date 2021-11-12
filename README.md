@@ -8,6 +8,40 @@
 
 <img src="./sample.jpg" alt="Native ARM64 build.">
 
+## ⚙️ Instructions
+
+Before starting make sure you have Python 3.7 or later installed.
+
+```bash
+brew install python3
+```
+
+1 - Download the zip of master branch manually or by running:
+
+```bash
+git clone https://github.com/DreamDevourer/CrossCode-Mac-M1-Port.git
+```
+
+2 - Extract the files inside the aarch64/NWJS.xz, the folder structure needs to look like this after the extraction:
+
+aarch64
+├── MacOS
+├── Frameworks
+├── Resources
+├── PkgInfo
+└── info.plist
+
+3 - move the installer.py with the aarch64 folder to where the CrossCode.app is located (Your steam default installation folder probably).
+
+4 - Open the terminal where the script is located and run:
+
+```bash
+python3 installer.py
+```
+
+5 - After the patch is done, you can run CrossCode.app normally. Also make sure to test it in Activity Monitor.
+
+
 ## 📄 License
 
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
