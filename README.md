@@ -22,26 +22,15 @@ brew install python3
 git clone https://github.com/DreamDevourer/CrossCode-Mac-M1-Port.git
 ```
 
-2 - Extract the files inside the aarch64/NWJS.xz, the folder structure needs to look like this after the extraction:
+2 - move the installer.py with the aarch64 folder to where the CrossCode.app is located (Your steam default installation folder probably).
 
-```bash
-aarch64
-├── MacOS
-├── Frameworks
-├── Resources
-├── PkgInfo
-└── info.plist
-```
-
-3 - move the installer.py with the aarch64 folder to where the CrossCode.app is located (Your steam default installation folder probably).
-
-4 - Open the terminal where the script is located and run:
+3 - Open the terminal where the script is located and run:
 
 ```bash
 python3 installer.py
 ```
 
-5 - After the patch is done, you can run CrossCode.app normally. Also make sure to test it in Activity Monitor.
+4 - After the patch is done, you can run CrossCode.app normally. Also make sure to test it in Activity Monitor and delete the installer.py and aarch64 folder.
 
 ## ✍️ Updating NWJS binaries
 
