@@ -16,12 +16,14 @@
 git clone https://github.com/DreamDevourer/CrossCode-Mac-M1-Port.git
 ```
 
-2 - move the installer.py with the aarch64 folder to where the CrossCode.app is located (Probably your default Steam installation folder).
+2 - Move the installer.py with aarch64 folder and start.sh to where the CrossCode.app is located (Probably your default Steam installation folder).
+
+You can easily land in the game folder by using the Steam menus:
 
 <img src="./tut00.jpg" alt="Opening game folder using Steam UI.">
 <img src="./tut01.jpg" alt="Folder where the patcher needs to be moved.">
 
-Before starting make sure you have Python 3.7 or later installed. If you are not sure, open the terminal where the scripts are and just run the start.sh with your preferred shell.
+After moving the files to the game folder and before starting, make sure you have Python 3.7 or later installed. If you are not sure, open the terminal where the scripts are and just run the start.sh with your preferred shell. Follow the patch instructions and have fun!
 
 ```bash
 ./start.sh
@@ -33,7 +35,9 @@ Before starting make sure you have Python 3.7 or later installed. If you are not
 python3 installer.py
 ```
 
-4 - After the patch is done, you can run CrossCode.app normally.
+4 - Follow the patch instructions.
+
+5 - After the patch is done, you can run CrossCode.app normally.
 
 ## ✍️ Updating NWJS binaries
 
