@@ -7,8 +7,9 @@ from pathlib import Path
 from os import remove
 from sys import argv
 
+# Version
 patcherVersion = "v1.8"
-os.system(f"CrossCode MacM1 Patcher {patcherVersion}")
+os.system(f"CrossCode Mac M1 Patcher {patcherVersion}")
 
 # Shell POSIX path
 current_shell_dir = os.path.dirname(sys.argv[0])
