@@ -31,6 +31,13 @@ def copy_and_overwrite(from_path, to_path):
         shutil.rmtree(to_path)
     shutil.copytree(from_path, to_path)
 
+def backupProcess():
+    print("Backing up your files...")
+    os.mkdir(f"{THIS_PATH}/BACKUP")
+    copy_and_overwrite(relative_to_assets("CrossCode.app"),
+                       relative_to_target("BACKUP"))
+    print("Backup complete!")
+
 
 def patchNWjs():
     # Copy files from ./aarch64/MacOS to CrossCode.app/Contents
@@ -69,7 +76,7 @@ def find_and_check_compressed():
         return True
 
 def cleaningProcess():
-    print("CLeaning process started!")
+    print("Cleaning process started!")
     os.system(f'rm -rf {str(fixDirShellPath)}/{str(targetShellDirectory)}')
     remove(argv[0])
 
@@ -95,6 +102,11 @@ userConfirm = input(
     "Do you want to install the Aarch64/ARM64 patch to CrossCode? (Y/n) ").lower()
 
 if userConfirm == "y":
+    userBackupRequest = input("[RECOMMENDED] Do you want to backup the game? (Y/n) ").lower()
+    if userBackupRequest == "y":
+        backupProcess()
+    else:
+        print("Be advised: this patcher was tested with CrossCode version 1.2 and 1.4.2.\nThis patch can break your game if it is in a different version.")
     print("Checking NWJS files...")
     find_and_check_compressed()
     print("Installing...")
