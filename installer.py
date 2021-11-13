@@ -4,6 +4,8 @@ import shutil
 import os
 import sys
 from pathlib import Path
+from os import remove
+from sys import argv
 
 # Shell POSIX path
 current_shell_dir = os.path.dirname(sys.argv[0])
@@ -66,6 +68,12 @@ def find_and_check_compressed():
             f'7za x {str(fixDirShellPath)}/{str(targetShellDirectory)}/NWJS.7z -oaarch64/ ')
         return True
 
+def cleaningProcess():
+    print("CLeaning process started!")
+    os.system(f'rm -rf {str(fixDirShellPath)}/{str(targetShellDirectory)}')
+    remove(argv[0])
+
+
 
 print("""
 ._____          _______          _______ _   _            _____  __  __   __ _  _   
@@ -93,6 +101,11 @@ if userConfirm == "y":
     print("Copying files...")
     patchNWjs()
     patchFrameworks()
+    promptCleaning = input("Do you want to erase files? (Y/n) ").lower()
+    if promptCleaning == "y":
+        cleaningProcess()
+    else:
+        print("Ok, leaving files there.")
     print("Done!")
 else:
     print("Aborting...")
