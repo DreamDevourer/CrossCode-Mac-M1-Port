@@ -3,11 +3,7 @@ import pathlib
 import shutil
 import os
 import sys
-import subprocess
 from pathlib import Path
-
-# request sudo
-# returncode = subprocess.call(["/usr/bin/sudo", "/usr/bin/id"])
 
 # Shell POSIX path
 current_shell_dir = os.path.dirname(sys.argv[0])
@@ -62,7 +58,8 @@ def find_and_check_compressed():
             print("Homebrew is not installed... Installing brew.")
             os.system(
                 '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-        print("Homebrew is installed... Skipping")
+        else:
+            print("Homebrew is installed... Skipping")
         print(f"Found {relative_to_assets('NWJS.7z')}")
         os.system('brew install p7zip')
         os.system(
