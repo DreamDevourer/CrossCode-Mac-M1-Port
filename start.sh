@@ -1,4 +1,7 @@
 #!/bin/bash
+starttitle="CrossCode Patcher Starter"
+echo -e '\033k'$starttitle'\033\\'
+clear
 echo " "
 echo "Starting the script..."
 echo "1 - Installing dependencies"
