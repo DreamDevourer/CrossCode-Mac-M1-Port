@@ -92,9 +92,9 @@ print("""
 
 Welcome to the Mac M1 Aarch64 Patcher
 
-1 - Before you begin, make sure you have at least the version 1.0.0 and above of CrossCode installed.
+1 - Before you begin, make sure you have at least the version 1.0.0 or above of CrossCode installed.
 2 - Drop this script with the folder aarch64 in the same folder as CrossCode.app.
-3 - Don't forget to extract the NWJS.xz files inside aarch64 (i.e MacOS, Frameworks...)
+3 - Let's patch it!
 
 If you want to update the NW.js to the latest version, read the readme.md instructions.
 """)
