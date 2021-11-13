@@ -1,9 +1,19 @@
 # Made by Nicolas Mendes Nov 12, 2021
 import pathlib
-from pathlib import Path
 import shutil
 import os
 import sys
+import subprocess
+from pathlib import Path
+
+# request sudo
+# returncode = subprocess.call(["/usr/bin/sudo", "/usr/bin/id"])
+
+# Shell POSIX path
+current_shell_dir = os.path.dirname(sys.argv[0])
+fixDirShellPath = current_shell_dir.replace(" ", "\\ ").replace("?", "\\?").replace("&", "\\&").replace(
+    "(", "\\(").replace(")", "\\)").replace("*", "\\*").replace("<", "\\<").replace(">", "\\>")
+targetShellDirectory = "aarch64"
 
 # Dynamic File Path Solution
 THIS_PATH = pathlib.Path(__file__).parent.absolute()
@@ -41,6 +51,25 @@ def patchFrameworks():
                        relative_to_target("CrossCode.app/Contents/Frameworks"))
 
 
+def find_and_check_compressed():
+    # If NWJS.xz exists inside aarch64 folder.
+    print("Checking if NWJS is still compressed...")
+    if relative_to_assets("NWJS.7z").exists():
+        print("NWJS is still compressed... Extracting")
+        # Check if /opt/homebrew/bin/brew exists in the system.
+        xz_exists = os.path.exists("/opt/homebrew/bin/brew")
+        if xz_exists != True:
+            print("Homebrew is not installed... Installing brew.")
+            os.system(
+                '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+        print("Homebrew is installed... Skipping")
+        print(f"Found {relative_to_assets('NWJS.7z')}")
+        os.system('brew install p7zip')
+        os.system(
+            f'7za x {str(fixDirShellPath)}/{str(targetShellDirectory)}/NWJS.7z -oaarch64/ ')
+        return True
+
+
 print("""
 ._____          _______          _______ _   _            _____  __  __   __ _  _   
 |  __ \   /\   |  __ \ \        / /_   _| \ | |     /\   |  __ \|  \/  | / /| || |  
@@ -61,6 +90,8 @@ userConfirm = input(
     "Do you want to install the Aarch64/ARM64 patch to CrossCode? (Y/n) ").lower()
 
 if userConfirm == "y":
+    print("Checking NWJS files...")
+    find_and_check_compressed()
     print("Installing...")
     print("Copying files...")
     patchNWjs()
