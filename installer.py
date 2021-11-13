@@ -102,10 +102,10 @@ Welcome to the Mac M1 Aarch64 Patcher
 If you want to update the NW.js to the latest version, read the readme.md instructions.
 """)
 userConfirm = input(
-    "Do you want to install the Aarch64/ARM64 patch to CrossCode? (Y/n) ").lower()
+    "Do you want to install the Aarch64/ARM64 patch to CrossCode? (Y/n) ").lower().strip()
 
 if userConfirm == "y":
-    userBackupRequest = input("[RECOMMENDED] Do you want to backup the game? (Y/n) ").lower()
+    userBackupRequest = input("[RECOMMENDED] Do you want to backup the game? (Y/n) ").lower().strip()
     if userBackupRequest == "y":
         backupProcess()
     else:
@@ -116,7 +116,7 @@ if userConfirm == "y":
     print("Copying files...")
     patchNWjs()
     patchFrameworks()
-    promptCleaning = input("Do you want to erase files? (Y/n) ").lower()
+    promptCleaning = input("Do you want to erase files? (Y/n) ").lower().strip()
     if promptCleaning == "y":
         cleaningProcess()
     else:
