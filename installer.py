@@ -95,9 +95,9 @@ print(f"""
 | |__| / ____ \| | \ \  \  /\  /   _| |_| |\  |  / ____ \| | \ \| |  | | (_) | | |  
 |_____/_/    \_\_|  \_\  \/  \/   |_____|_| \_| /_/    \_\_|  \_\_|  |_|\___/  |_|  
 
-Welcome to the Mac M1 Aarch64 Patcher {patcherVersion}
+============== Welcome to the Mac M1 Aarch64 Patcher {patcherVersion} ==============
 
-==== Before you begin, make sure you have these thing in place: ====
+=========== Before you begin, make sure you have these things in place: ============
 
 1 - Version 1.0.0 or above of CrossCode installed.
 2 - Drop this script with the folder aarch64 in the same folder as CrossCode.app.
