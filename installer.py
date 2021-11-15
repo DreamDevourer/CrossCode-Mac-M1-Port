@@ -8,7 +8,7 @@ from os import remove
 from sys import argv
 
 # Version
-patcherVersion = "v1.8"
+patcherVersion = "v1.9 STABLE"
 os.system(f"CrossCode Mac M1 Patcher {patcherVersion}")
 
 # Shell POSIX path
@@ -87,7 +87,7 @@ def cleaningProcess():
 
 
 
-print("""
+print(f"""
 ._____          _______          _______ _   _            _____  __  __   __ _  _   
 |  __ \   /\   |  __ \ \        / /_   _| \ | |     /\   |  __ \|  \/  | / /| || |  
 | |  | | /  \  | |__) \ \  /\  / /  | | |  \| |    /  \  | |__) | \  / |/ /_| || |_ 
@@ -95,13 +95,15 @@ print("""
 | |__| / ____ \| | \ \  \  /\  /   _| |_| |\  |  / ____ \| | \ \| |  | | (_) | | |  
 |_____/_/    \_\_|  \_\  \/  \/   |_____|_| \_| /_/    \_\_|  \_\_|  |_|\___/  |_|  
 
-Welcome to the Mac M1 Aarch64 Patcher
+Welcome to the Mac M1 Aarch64 Patcher {patcherVersion}
 
-1 - Before you begin, make sure you have at least the version 1.0.0 or above of CrossCode installed.
+==== Before you begin, make sure you have these thing in place: ====
+
+1 - Version 1.0.0 or above of CrossCode installed.
 2 - Drop this script with the folder aarch64 in the same folder as CrossCode.app.
 3 - Let's patch it!
 
-If you want to update the NW.js to the latest version, read the readme.md instructions.
+If you want to update the NW.js to the latest version, read the readme.md instructions or wait for the next update.
 """)
 userConfirm = input(
     "Do you want to install the Aarch64/ARM64 patch to CrossCode? (Y/n) ").lower().strip()
