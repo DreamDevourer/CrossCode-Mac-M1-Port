@@ -12,7 +12,7 @@ patcherVersion = "v1.8"
 os.system(f"CrossCode Mac M1 Patcher {patcherVersion}")
 
 # Shell POSIX path
-current_shell_dir = os.path.dirname(sys.argv[0])
+current_shell_dir = os.path.dirname(os.path.abspath(__file__))
 fixDirShellPath = current_shell_dir.replace(" ", "\\ ").replace("?", "\\?").replace("&", "\\&").replace(
     "(", "\\(").replace(")", "\\)").replace("*", "\\*").replace("<", "\\<").replace(">", "\\>")
 targetShellDirectory = "aarch64"
@@ -38,7 +38,7 @@ def copy_and_overwrite(from_path, to_path):
 def backupProcess():
     print("Backing up your files...")
     os.mkdir(f"{THIS_PATH}/BACKUP")
-    copy_and_overwrite(relative_to_assets("CrossCode.app"),
+    copy_and_overwrite(f"{THIS_PATH}/CrossCode.app",
                        relative_to_target("BACKUP"))
     print("Backup complete!")
 
@@ -61,13 +61,13 @@ def patchFrameworks():
 
 
 def find_and_check_compressed():
-    # If NWJS.xz exists inside aarch64 folder.
+    # If NWJS.7z exists inside aarch64 folder.
     print("Checking if NWJS is still compressed...")
-    if relative_to_assets("NWJS.7z").exists():
+    if relative_to_assets('NWJS.7z').exists():
         print("NWJS is still compressed... Extracting")
         # Check if /opt/homebrew/bin/brew exists in the system.
-        xz_exists = os.path.exists("/opt/homebrew/bin/brew")
-        if xz_exists != True:
+        compressedExists = os.path.exists("/opt/homebrew/bin/brew")
+        if compressedExists != True:
             print("Homebrew is not installed... Installing brew.")
             os.system(
                 '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
@@ -76,12 +76,12 @@ def find_and_check_compressed():
         print(f"Found {relative_to_assets('NWJS.7z')}")
         os.system('brew install p7zip')
         os.system(
-            f'7za x {str(fixDirShellPath)}/{str(targetShellDirectory)}/NWJS.7z -oaarch64/ ')
+            f'7za x {fixDirShellPath}/{targetShellDirectory}/NWJS.7z -oaarch64/ ')
         return True
 
 def cleaningProcess():
     print("Cleaning process started!")
-    os.system(f'rm -rf {str(fixDirShellPath)}/{str(targetShellDirectory)}')
+    os.system(f'rm -rf {fixDirShellPath}/{targetShellDirectory}')
     remove(argv[0])
 
 
