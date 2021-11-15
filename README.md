@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="./LICENSE">License</a>
-  <p align="center">Working up to CrossCode <bold> 1.4.2<bold></p>
+  <p align="center">Working up to CrossCode <strong> 1.4.2</strong></p>
 </p>
 
 <img src="./sample.jpg" alt="Native ARM64 build.">
