@@ -3,7 +3,7 @@
 <p align="center">This is just a simple patcher for CrossCode to work natively on M1 Macs. This patch contains compiled darwin aarch64 binaries of NWJS.</p>
 
 <p align="center">
-  <a href="./LICENSE">License</a>
+  <a href="./LICENSE">License</a> | 
   <a href="https://youtu.be/c4FHMqBx4bY">Demonstration Video</a>
   <p align="center"><strong>Tested and working up to CrossCode 1.4.2</strong></p>
 </p>
