@@ -82,6 +82,7 @@ def find_and_check_compressed():
 def cleaningProcess():
     print("Cleaning process started!")
     os.system(f'rm -rf {fixDirShellPath}/{targetShellDirectory}')
+    os.system(f'rm -rf {fixDirShellPath}/start.sh')
     remove(argv[0])
 
 
